@@ -1,0 +1,257 @@
+/* Definições de cores neutras */
+:root {
+  --cor-primaria: #003366; /* Azul marinho */
+  --cor-secundaria: #666; /* Cinza médio */
+  --cor-fundo: #f4f4f4; /* Cinza claro */
+  --cor-texto: #000; /* Preto */
+}
+
+/* Estilos gerais do corpo */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  scroll-behavior: smooth; /* Adiciona rolagem suave */
+  padding-top: 80px; /* Adiciona espaçamento para compensar a altura do cabeçalho fixo */
+}
+
+/* Estilos para o cabeçalho */
+header {
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+  padding: 15px 0;
+  position: fixed; /* Mantém o cabeçalho fixo no topo da página */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Garante que o cabeçalho esteja acima do conteúdo principal */
+  overflow: hidden; /* Garante que o conteúdo que ultrapassa o cabeçalho não seja visível */
+}
+
+/* Contêiner do cabeçalho */
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; /* Permite o posicionamento absoluto do slogan */
+}
+
+/* Estilos para o logo */
+header .logo {
+  height: 90px; /* Ajusta conforme necessário */
+  width: auto; /* Mantém a proporção do logo */
+  margin-left: 0; /* Remove qualquer margem à esquerda do logo */
+  position: relative; /* Garante que o logo esteja acima do slogan */
+  left: -130px; /* Ajuste conforme necessário; define a distância a partir do lado esquerdo do contêiner */
+  z-index: 1100; /* Garante que o logo esteja acima do slogan */
+}
+
+/* Estilos para o slogan */
+header .slogan {
+  text-align: center;
+  font-size: 1.2em;
+  position: absolute; /* Permite o movimento do slogan */
+  white-space: nowrap; /* Impede a quebra de linha do slogan */
+  overflow: hidden; /* Garante que o slogan não ultrapasse o contêiner */
+  animation: marquee 10s linear infinite; /* Aplica a animação chamada 'marquee' */
+  left: 100px; /* Ajuste para começar após o logo, ajuste conforme necessário */
+  width: calc(100% - 200px - 40px); /* Ajusta a largura do slogan para caber entre o logo e o menu */
+  z-index: 1050; /* Garante que o slogan fique atrás do logo e do menu */
+}
+
+/* Estilos para o menu */
+nav {
+  margin: 0;
+  position: relative; /* Permite o controle do `z-index` do menu */
+  left: 100px; /* Ajuste conforme necessário; define a distância a partir do lado esquerdo do contêiner */
+
+  z-index: 1100; /* Garante que o menu fique acima do slogan */
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end; /* Alinha os itens do menu à direita */
+}
+
+nav ul li {
+  margin-left: 20px; /* Espaço entre os itens da lista */
+}
+
+nav ul li a {
+  color: var(--cor-fundo);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: var(--cor-secundaria);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(-50%); /* Inicia o slogan completamente fora da tela à esquerda */
+  }
+  100% {
+    transform: translateX(20%); /* Move o slogan completamente para fora da tela à direita */
+  }
+}
+
+/* Estilo para a imagem do "Início" */
+#inicio-imagem {
+  width: 100%;
+  height: 39vh; /* Altura proporcional à página */
+  object-fit: cover; /* Mantém a proporção da imagem */
+}
+
+/* Estilos para seções diferenciais */
+.diferenciais {
+  padding: 40px 0;
+}
+
+.diferenciais .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.diferencial {
+  flex: 1;
+  max-width: 600px;
+  margin: 0 10px;
+  box-sizing: border-box;
+}
+
+.diferencial img {
+  width: 60%;
+  height: auto;
+}
+
+.diferencial h3 {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.diferencial p {
+  font-size: 1em;
+  color: var(--cor-texto);
+}
+
+/* Estilos para seções */
+section {
+  padding: 40px 0;
+}
+
+section h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+/* Estilos para o rodapé */
+footer {
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+  padding: 15px 0;
+  text-align: center;
+  position: relative; /* Necessário para posicionar o logo do cliente dentro do rodapé */
+  overflow: hidden; /* Garante que o conteúdo que sai do rodapé não seja visível */
+}
+
+footer .container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-cliente {
+  position: absolute;
+  bottom: 0;
+  left: 80%; /* Começa fora da tela à direita */
+  height: 50px; /* Ajuste conforme necessário */
+  width: auto;
+  animation: slideLogo 10s linear infinite; /* Animação de deslizar */
+}
+
+/* Animação para deslizar o logo */
+@keyframes slideLogo {
+  0% {
+      left: 100%; /* Inicia fora da tela à direita */
+  }
+  100% {
+      left: -100%; /* Termina fora da tela à esquerda */
+  }
+}
+
+#servicos {
+  padding: 40px 0;
+}
+
+#servicos .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.servico {
+  flex: 1;
+  max-width: 600px;
+  margin: 0 10px;
+  box-sizing: border-box;
+  text-align: center; /* Centraliza o texto dentro da seção de serviços */
+}
+
+.servico img {
+  width: 60%; /* Ajusta a largura da imagem para 60% do contêiner pai */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.servico h3 {
+  margin-top: 10px;
+}
+
+.servico p {
+  font-size: 1em;
+  color: var(--cor-texto);
+}
+
+.logo-cliente-flutuante {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  height: 50px; /* Ajuste conforme necessário */
+  width: auto;
+  z-index: 100; /* Garante que o logo fique acima de outros elementos */
+  animation: flutuar 10s ease-in-out infinite alternate; /* Animação de flutuação */
+  opacity: 0.7; /* Torna o logo mais discreto */
+}
+
+/* Animação para fazer o logo flutuar */
+@keyframes flutuar {
+  0% {
+      transform: translateY(0) translateX(0);
+  }
+  25% {
+      transform: translateY(-10px) translateX(10px);
+  }
+  50% {
+      transform: translateY(10px) translateX(-10px);
+  }
+  75% {
+      transform: translateY(-10px) translateX(-10px);
+  }
+  100% {
+      transform: translateY(0) translateX(10px);
+  }
+}
+
+
+
+
